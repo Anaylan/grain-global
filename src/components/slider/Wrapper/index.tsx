@@ -7,12 +7,13 @@ import {
 	Children,
 	cloneElement,
 	TouchEventHandler,
+	ReactElement,
 } from "react";
 import { Dot } from "../Navigation/Dot";
 import { SlideList } from "../SlideList";
 
 export type SliderProps = {
-	children: JSX.Element[];
+	children: ReactElement[];
 	autoPlay?: boolean;
 	autoPlayDelay?: number;
 };
@@ -22,7 +23,7 @@ export const Slider: FC<SliderProps> = ({
 	autoPlay = false,
 	autoPlayDelay = 5000,
 }) => {
-	const [pages, setPages] = useState<JSX.Element[]>([]);
+	const [pages, setPages] = useState<ReactElement[]>([]);
 	const [activeSlide, setSlide] = useState<number>(0);
 	const [touchPosition, setTouchPosition] = useState<number | null>(null);
 
@@ -106,7 +107,7 @@ export const Slider: FC<SliderProps> = ({
 				}}>
 				<SlideList />
 				<HStack className='navigation'>
-					{pages.map((slide: any, index: number) => (
+					{pages.map((_slide: unknown, index: number) => (
 						<Dot index={index} key={index} />
 					))}
 				</HStack>

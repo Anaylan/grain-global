@@ -20,8 +20,8 @@ export default defineConfig({
 				quality: 20,
 			},
 			pngquant: {
-				quality: [0.8, 0.9],
-				speed: 4,
+				quality: [0.9, 1],
+				speed: 1,
 			},
 			webp: {
 				preset: "photo",

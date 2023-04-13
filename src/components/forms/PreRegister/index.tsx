@@ -11,8 +11,9 @@ import {
 	Box,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
+import { error, success, empty } from "@/utils/colors";
 
-export const PreRegisterForm = () => {
+export const PreRegisterForm = ({ title }: { title: string }) => {
 	const formik = useFormik({
 		initialValues: {
 			name: "",
@@ -21,15 +22,20 @@ export const PreRegisterForm = () => {
 		validationSchema: preRegisterSchema,
 		onSubmit: (values, { resetForm }) => {
 			alert(JSON.stringify(values, null, 2));
-
+			console.log(values);
 			resetForm();
 		},
 	});
 	return (
-		<form onSubmit={formik.handleSubmit}>
+		<form
+			style={{
+				width: "100%",
+			}}
+			onSubmit={formik.handleSubmit}>
 			<BoxWrapper
 				display='flex'
 				marginTop={"72px"}
+				width='100%'
 				flexDirection={"column"}
 				gap='5'>
 				<Heading
@@ -37,10 +43,10 @@ export const PreRegisterForm = () => {
 					maxW={{ "2xl": "65%", base: "100%" }}
 					lineHeight='140%'
 					fontWeight={"400"}>
-					Give your email and receive a notification about the start of trading
-					notification
+					{title}
 				</Heading>
 				<HStack spacing={"4"}>
+					{/* Поменять шрифт */}
 					<Tooltip
 						padding='3'
 						borderRadius='xl'
@@ -48,22 +54,29 @@ export const PreRegisterForm = () => {
 						label={formik.errors.name}>
 						<Input
 							size={"lg"}
-							variant={"outlined"}
-							color={formik.errors.name ? "#EF4F4F" : "#34373C"}
+							variant={"register"}
+							color={
+								formik.touched.name && formik.errors.name
+									? "#EF4F4F"
+									: "#34373C"
+							}
 							name='name'
 							value={formik.values.name}
 							onChange={formik.handleChange}
+							onBlur={formik.handleBlur}
+							// onFocus={formik.handleBlur}
 							borderColor={
-								formik.errors.name != null
-									? "#EF4F4F"
+								formik.touched.name && formik.errors.name != null
+									? // red
+									  error
 									: formik.errors.name == null && formik.values.name != ""
-									? "#34B829"
-									: "#919191"
+									? // green
+									  success
+									: //   gray
+									  empty
 							}
-							borderWidth='1px'
 							placeholder='What is your name?'
 							type={"text"}
-							fontWeight='700'
 						/>
 					</Tooltip>
 					<Tooltip
@@ -72,21 +85,23 @@ export const PreRegisterForm = () => {
 						hasArrow
 						label={formik.errors.email}>
 						<Input
-							size={"lg"}
-							variant={"outlined"}
-							color={formik.errors.email ? "#EF4F4F" : "#34373C"}
 							name='email'
+							size={"lg"}
+							variant={"register"}
+							color={
+								formik.touched.email && formik.errors.email ? error : "#34373C"
+							}
+							onBlur={formik.handleBlur}
 							value={formik.values.email}
 							onChange={formik.handleChange}
+							// onFocus={formik.handleBlur}
 							borderColor={
-								formik.errors.email != null
-									? "#EF4F4F"
+								formik.touched.email && formik.errors.email != null
+									? error
 									: formik.errors.email == null && formik.values.email != ""
-									? "#34B829"
-									: "#919191"
+									? success
+									: empty
 							}
-							borderWidth='1px'
-							fontWeight='700'
 							placeholder='Email'
 							type={"text"}
 						/>

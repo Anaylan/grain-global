@@ -6,17 +6,11 @@ const { definePartsStyle, defineMultiStyleConfig } =
 
 const register = definePartsStyle({
 	field: {
-		border: "1px solid",
+		borderWidth: "1px",
+		fontWeight: "700",
 		borderColor: "#919191",
-		background: "#FFFFFF",
-		borderRadius: "full",
-		color: "#34373C",
-
-		// Let's also provide dark mode alternatives
-		_dark: {
-			borderColor: "gray.600",
-			background: "gray.800",
-		},
+		size: "lg",
+		fontSize: { md: "18px", base: "14px" },
 	},
 	addon: {
 		border: "1px solid",
@@ -24,12 +18,6 @@ const register = definePartsStyle({
 		background: "#FFFFFF",
 		borderRadius: "full",
 		color: "#34373C",
-
-		_dark: {
-			borderColor: "gray.600",
-			background: "gray.600",
-			color: "gray.400",
-		},
 	},
 });
 

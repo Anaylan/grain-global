@@ -3,7 +3,7 @@ import { Container, Flex, Text } from "@chakra-ui/react";
 
 export const DefaultFooter = () => {
 	return (
-		<Container zIndex='30' pt={"6"} mb={"52px"} as={"footer"}>
+		<Container zIndex='30' pt={"6"} mb='2' as={"footer"}>
 			<Flex
 				marginBottom={{ md: "13px", base: "10" }}
 				flexDirection={{ md: "row", base: "column" }}

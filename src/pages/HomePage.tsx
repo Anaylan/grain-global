@@ -2,8 +2,45 @@ import { BoxWrapper } from "@/components/boxes";
 import { PreRegisterForm } from "@/components/forms/PreRegister";
 import { SliderItem } from "@/components/slider/Item";
 import { Slider } from "@/components/slider/Wrapper";
-import { Image, Heading, VStack } from "@chakra-ui/react";
+import { Image, Heading, VStack, Flex } from "@chakra-ui/react";
 import { Fragment } from "react";
+import type { SliderItemProps } from "@/components/slider/Item";
+
+const SLIDER_MAIN_PAGE: SliderItemProps[] = [
+	{
+		children: <>Legally significant deal-negotiations in online meeting room</>,
+	},
+	{
+		children: (
+			<>
+				Full execution of deals
+				<br />
+				from start to finish
+			</>
+		),
+	},
+	{
+		children: (
+			<>
+				Many thoughtful tools
+				<br />
+				for user’s convenience
+			</>
+		),
+	},
+	{
+		children: (
+			<>
+				Create a new
+				<br />
+				partnerships easy
+			</>
+		),
+	},
+	// {
+	// 	children: <>Effortlessly establish new business partnerships</>,
+	// },
+];
 
 export default function HomePage() {
 	return (
@@ -26,26 +63,26 @@ export default function HomePage() {
 						fontWeight='600'
 						letterSpacing='-0.01em'
 						fontSize={{ xl: "32px", base: "24px" }}>
-						Рre-registration
+						Pre-registration
 					</Heading>
 				</VStack>
-				<PreRegisterForm />
-				<BoxWrapper
-					as={"section"}
-					width='100%'
-					display={"flex"}
-					marginTop={"20px !important"}
-					gap='20px'
-					alignItems='flex-start'
-					justifyContent={"space-between"}>
-					<Image src='/sw_icon.svg' alt='Swiper Preview' />
-					<Slider autoPlay={true}>
-						<SliderItem>
-							Sell on new markets.
-							<br />
-							Buy from new suppliers
-						</SliderItem>
-						<SliderItem>
+				<PreRegisterForm title='Register with your email to be notified when trading begins' />
+				<BoxWrapper as={"section"} width='100%' marginTop={"20px !important"}>
+					<Flex
+						gap='20px'
+						alignItems='flex-start'
+						justifyContent={"space-between"}>
+						<Image src='/sw_icon.svg' alt='Swiper Preview' />
+						<Slider autoPlay={true}>
+							{SLIDER_MAIN_PAGE.map((item, key) => (
+								<Fragment key={`slider_main_page_${key}`}>
+									<SliderItem>{item.children}</SliderItem>
+								</Fragment>
+							))}
+						</Slider>
+					</Flex>
+				</BoxWrapper>
+				{/* <SliderItem>
 							Full execution of deals
 							<br />
 							from start to finish
@@ -59,9 +96,7 @@ export default function HomePage() {
 							Create a new
 							<br />
 							partnerships easy
-						</SliderItem>
-					</Slider>
-				</BoxWrapper>
+						</SliderItem> */}
 			</VStack>
 		</Fragment>
 	);

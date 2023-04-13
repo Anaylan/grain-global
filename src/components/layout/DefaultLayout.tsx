@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 import { DefaultFooter } from "./footer/DefaultFooter";
 import { DefaultNavigation } from "./navigation/DefaultNavigation";
+import bg from "@/assets/bg.webp";
 
 export default function DefaultLayout() {
 	return (
@@ -14,6 +15,7 @@ export default function DefaultLayout() {
 				marginTop={{ md: "0", base: "110px" }}
 				alignItems='center'
 				as={"main"}
+				flex='1 1 auto'
 				id='content'>
 				<Outlet />
 			</Container>
@@ -28,7 +30,7 @@ export default function DefaultLayout() {
 					content: '""',
 					width: "100vw",
 					height: { md: "100%", base: "420px" },
-					backgroundImage: "/bg.png",
+					backgroundImage: bg,
 					backgroundRepeat: "no-repeat",
 					backgroundSize: "cover",
 					backgroundPosition: {
