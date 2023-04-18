@@ -1,25 +1,23 @@
-import {
-	SliderContext,
-	SliderContextType,
-} from "@/utils/context/SliderContext";
-import { Flex } from "@chakra-ui/react";
-import { useContext } from "react";
+import { FC } from "react";
 
-export const SlideList = () => {
-	const { childs, activeSlide } = useContext(
-		SliderContext
-	) as SliderContextType;
+export type SlideListProps = {
+	activeSlide: number;
+	children: JSX.Element[];
+};
 
+export const SlideList: FC<SlideListProps> = ({ children, activeSlide }) => {
 	return (
-		<Flex
+		<div
+			// flex
 			className='slider-wrapper'
-			style={{
-				transform: `translateX(-${activeSlide * 100}%)`,
-				transitionDuration: ".5s",
-			}}
-			flexDirection={"row"}
-			paddingBottom='23px'>
-			{childs}
-		</Flex>
+			// style={{
+			// 	transform: `translateX(-${activeSlide * 100}%)`,
+			// 	transitionDuration: ".5s",
+			// }}
+			// flexDirection={"row"}
+			// paddingBottom='23px'
+		>
+			{children}
+		</div>
 	);
 };

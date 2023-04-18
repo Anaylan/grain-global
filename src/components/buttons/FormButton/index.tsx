@@ -1,6 +1,11 @@
-import { Button, ButtonProps } from "@chakra-ui/react";
-import { FC } from "react";
+// import { Button, ButtonProps } from "@chakra-ui/react";
+import { FC, ReactNode } from "react";
 
-export const FormButton: FC<ButtonProps> = ({ ...rest }) => {
-	return <Button {...rest}>{rest.children}</Button>;
+export type FormButtonProps = {
+	children: ReactNode;
+	rest?: any;
+};
+
+export const FormButton: FC<FormButtonProps> = ({ children, ...rest }) => {
+	return <button {...rest}>{children}</button>;
 };

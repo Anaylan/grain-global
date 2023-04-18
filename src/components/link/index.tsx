@@ -1,31 +1,30 @@
-import { Button, ButtonProps } from "@chakra-ui/react";
-import { FC } from "react";
-import { NavLink } from "react-router-dom";
+import { FC, ReactNode } from "react";
 
-interface LinkProps extends ButtonProps {
-	to: string;
-	rest?: ButtonProps;
+interface LinkProps {
+	href: string;
+	children: ReactNode;
+	rest?: any;
 }
 
-export const Link: FC<LinkProps> = ({ to, ...rest }) => {
+export const Link: FC<LinkProps> = ({ href, children, ...rest }) => {
 	return (
-		<Button
+		<a
 			className='link'
-			variant={"link"}
-			fontWeight={700}
-			marginInline={0}
-			_hover={{
-				textDecoration: "underline",
-				cursor: "poiner",
-			}}
-			fontSize={{ "2xl": "18px", md: "14px", base: "22px" }}
-			color='#EEFAF8'
-			lineHeight={"110%"}
-			as={NavLink}
+			// variant={"link"}
+			// fontWeight={700}
+			// marginInline={0}
+			// _hover={{
+			// 	textDecoration: "underline",
+			// 	cursor: "poiner",
+			// }}
+			// fontSize={{ "2xl": "18px", md: "14px", base: "22px" }}
+			// color='#EEFAF8'
+			// lineHeight={"110%"}
+			// as={"a"}
 			// caseSensitive={true}
 			{...rest}
-			to={to}>
-			{rest.children}
-		</Button>
+			href={href}>
+			{children}
+		</a>
 	);
 };

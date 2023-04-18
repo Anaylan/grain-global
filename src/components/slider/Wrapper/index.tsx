@@ -1,5 +1,3 @@
-import { SliderContext } from "@/utils/context/SliderContext";
-import { HStack, Box } from "@chakra-ui/react";
 import {
 	FC,
 	useState,
@@ -88,30 +86,31 @@ export const Slider: FC<SliderProps> = ({
 	}, [pages.length, activeSlide]); // when images uploaded or slide changed manually we start timer
 
 	return (
-		<Box
-			width={"100%"}
-			display='flex'
-			overflow={"hidden"}
-			justifyContent='space-between'
-			flexDirection={"column"}
+		<div
+			// marginTop={"-1"}
+			// width={"100%"}
+			// display='flex'
+			// overflow={"hidden"}
+			// justifyContent='space-between'
+			// flexDirection={"column"}
 			onTouchStart={handleTouchStart}
 			onTouchMove={handleTouchMove}
 			className='slider'>
-			<SliderContext.Provider
-				value={{
-					goToSlide,
-					changeSlide,
-					childsCount: pages.length,
-					activeSlide: activeSlide,
-					childs: pages,
-				}}>
-				<SlideList />
-				<HStack className='navigation'>
-					{pages.map((_slide: unknown, index: number) => (
-						<Dot index={index} key={index} />
-					))}
-				</HStack>
-			</SliderContext.Provider>
-		</Box>
+			<SlideList activeSlide={activeSlide} children={pages} />
+			<div
+				// horizontal
+				className='navigation'>
+				{pages.map(
+					(_slide: unknown, index: number): JSX.Element => (
+						<Dot
+							index={index}
+							key={index}
+							goToSlide={goToSlide}
+							activeSlide={activeSlide}
+						/>
+					)
+				)}
+			</div>
+		</div>
 	);
 };

@@ -1,14 +1,19 @@
-import { Box, BoxProps } from "@chakra-ui/react";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
-export const BoxWrapper: FC<BoxProps> = ({ ...props }) => {
+export type BoxWrapperProps = {
+	children?: ReactNode;
+	props?: any;
+};
+
+export const BoxWrapper: FC<BoxWrapperProps> = ({ children, ...props }) => {
 	return (
-		<Box
-			borderRadius={"xl"}
-			padding='30px'
-			{...props}
-			backgroundColor='rgba(255,255,255,0.3)'>
-			{props.children}
-		</Box>
+		<div
+			// borderRadius={"xl"}
+			// padding='30px'
+			// backgroundColor='rgba(255,255,255,0.3)'
+			className='box-wrapper'
+			{...props}>
+			{children}
+		</div>
 	);
 };

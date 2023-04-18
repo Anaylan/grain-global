@@ -1,21 +1,27 @@
-import { Box, Text, TextProps } from "@chakra-ui/react";
 import { FC, ReactNode } from "react";
 
 export type SliderItemProps = {
 	children: ReactNode;
-	text?: TextProps;
 };
 
-export const SliderItem: FC<SliderItemProps> = ({ children, text }) => {
+export const SliderItem: FC<SliderItemProps> = ({ children }) => {
 	return (
-		<Box minW={"100%"} maxW={"100%"} height='auto'>
-			<Text
-				userSelect={"none"}
-				fontSize={{ sm: "30px", base: "20px" }}
-				{...text}
-				lineHeight='126%'>
+		<div
+		//  minW={"100%"}
+		//  maxW={"100%"}
+		//  height='auto'
+		>
+			<p
+			// noOfLines={2}
+			// left={0}
+			// top={0}
+			// position={"relative"}
+			// userSelect={"none"}
+			// fontSize={{ sm: "30px", base: "20px" }}
+			// lineHeight='126%'
+			>
 				{children}
-			</Text>
-		</Box>
+			</p>
+		</div>
 	);
 };
