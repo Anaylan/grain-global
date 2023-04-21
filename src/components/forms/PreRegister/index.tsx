@@ -119,8 +119,9 @@ export const PreRegisterForm = ({ title }: { title: string }) => {
 				</FlexBox>
 
 				<FlexBox
-				// flex
-				// spacing={"4"}
+					className={`${style["form-wrapper__container"]}`}
+					// flex
+					// spacing={"4"}
 				>
 					<div
 						// width={{ "2xl": "50%", xl: "50%" }}
