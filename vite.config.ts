@@ -25,6 +25,7 @@ export default defineConfig({
 			},
 			webp: {
 				preset: "photo",
+				quality: 0.8,
 			},
 			svgo: {
 				plugins: [
