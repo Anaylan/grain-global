@@ -1,0 +1,19 @@
+.tooltip {
+	display: none;
+	position: absolute;
+	background: rgba($color: #000000, $alpha: 0.6);
+	border-radius: var(--radius-lg);
+	padding: 10px;
+	transition-duration: var(--normal-duration);
+	transition: all 0.3s ease-in-out;
+	// right: 0;
+	&-wrapper {
+		width: 100%;
+		position: relative;
+		&:hover {
+			.tooltip {
+				display: block;
+			}
+		}
+	}
+}

@@ -1,4 +1,5 @@
 import { FC } from "react";
+import style from "./Dot.module.scss";
 
 export type DotProps = {
 	index: number;
@@ -9,19 +10,10 @@ export type DotProps = {
 export const Dot: FC<DotProps> = ({ index, activeSlide, goToSlide }) => {
 	return (
 		<div
-			// _hover={{
-			// 	background: "#F2A905",
-			// }}
-			// _active={{
-			// 	background: "#34B829",
-			// }}
 			onClick={() => goToSlide(index)}
-			// transition='0.2s ease-in-out'
-			// background='#D9D9D9'
-			// borderRadius='2px'
-			// width={"16px"}
-			// height={"4px"}
-			className={`dot${index === activeSlide ? " active" : ""}`}
+			className={`${style["dot"]} ${
+				index === activeSlide ? style["active"] : ""
+			}`}
 		/>
 	);
 };

@@ -10,6 +10,8 @@ import {
 import { Dot } from "../Navigation/Dot";
 import { SlideList } from "../SlideList";
 
+import style from "./Wrapper.module.scss";
+
 export type SliderProps = {
 	children: ReactElement[];
 	autoPlay?: boolean;
@@ -95,11 +97,11 @@ export const Slider: FC<SliderProps> = ({
 			// flexDirection={"column"}
 			onTouchStart={handleTouchStart}
 			onTouchMove={handleTouchMove}
-			className='slider'>
+			className={style["slider"]}>
 			<SlideList activeSlide={activeSlide} children={pages} />
 			<div
 				// horizontal
-				className='navigation'>
+				className={style["navigation"]}>
 				{pages.map(
 					(_slide: unknown, index: number): JSX.Element => (
 						<Dot

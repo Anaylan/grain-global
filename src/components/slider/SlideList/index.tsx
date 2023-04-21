@@ -1,4 +1,5 @@
 import { FC } from "react";
+import style from "./SlideList.module.scss";
 
 export type SlideListProps = {
 	activeSlide: number;
@@ -8,15 +9,11 @@ export type SlideListProps = {
 export const SlideList: FC<SlideListProps> = ({ children, activeSlide }) => {
 	return (
 		<div
-			// flex
-			className='slider-wrapper'
-			// style={{
-			// 	transform: `translateX(-${activeSlide * 100}%)`,
-			// 	transitionDuration: ".5s",
-			// }}
-			// flexDirection={"row"}
-			// paddingBottom='23px'
-		>
+			className={style["slider-wrapper"]}
+			// TODO: Move this style section in class
+			style={{
+				transform: `translateX(-${activeSlide * 100}%)`,
+			}}>
 			{children}
 		</div>
 	);

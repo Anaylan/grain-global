@@ -1,0 +1,38 @@
+.link {
+	background: transparent;
+	font-weight: 700;
+	margin-inline: 0;
+
+	text-decoration: none;
+	transition: all 0.1s ease-in-out;
+	line-height: 110%;
+
+	gap: 10px;
+
+	// marginInline={0}
+	// _hover={{
+	// 	textDecoration: "underline",
+	// 	cursor: "poiner",
+	// }}
+	// fontSize={{ "2xl": "18px", md: "14px", base: "22px" }}
+	// color='#EEFAF8'
+	// lineHeight={"110%"}
+	// as={"a"}
+
+	@media (max-width: var(--md)) {
+		font-size: 22px;
+	}
+
+	@media screen and (min-width: var(--md)) {
+		font-size: 14px !important;
+	}
+
+	@media screen and (min-width: var(--2xl)) {
+		font-size: 18px !important;
+	}
+
+	&:hover {
+		text-decoration: underline;
+		cursor: poiner;
+	}
+}

@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 export const DefaultWrapper = ({ children }: { children: ReactNode }) => {
 	return (
 		<main
+			className='container'
 			// container
 			// zIndex='30'
 			// display={"flex"}

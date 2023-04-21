@@ -1,11 +1,10 @@
 // import { Flex, Heading, VStack } from "@chakra-ui/react";
 import DefaultLayout from "./components/layout/DefaultLayout";
-import { SliderItem, SliderItemProps } from "./components/slider/Item";
 import { Fragment } from "react";
-import { BoxWrapper } from "./components/boxes";
+import { BoxWrapper, FlexBox } from "./components/boxes";
 import { PreRegisterForm } from "./components/forms/PreRegister";
-import { Slider } from "./components/slider/Wrapper";
-
+import { Slider, SliderItem, SliderItemProps } from "./components/slider";
+import { Image } from "./components/Image";
 import "@/assets/scss/reset.scss";
 import "@/assets/scss/globals.scss";
 
@@ -89,63 +88,48 @@ function App() {
 	return (
 		<Fragment>
 			<DefaultLayout>
-				<div
-				// flex column
-				// alignItems={"flex-start"}
-				// maxW={{ "2xl": "700px", md: "550px", base: "100%" }}
-				// spacing={0}
-				>
+				<FlexBox className='column maxW-advert mt-mainPage'>
 					<div
 					// flex column
 					// spacing={"4"} alignItems='flex-start'
 					>
-						<h1
-
-						// fontWeight='700'
-						// fontSize={{ "2xl": "56px", base: "36px" }}
-						// letterSpacing={"-0.01em"}
-						// fontStyle='normal'
-						// lineHeight='120%'
-						>
+						<h1 className='main-title'>
 							Food and feed worldwide
 							<br />
 							online trading platform
 						</h1>
-						<h1
-						// lineHeight={"120%"}
-						// fontWeight='600'
-						// letterSpacing='-0.01em'
-						// fontSize={{ xl: "32px", base: "24px" }}
-						>
-							Pre-registration
-						</h1>
+						<h1 className='main-subtitle'>Pre-registration</h1>
 					</div>
 					<PreRegisterForm title='Register with your email to be notified when trading begins' />
 					<BoxWrapper
-					// backgroundColor={"rgba(255,255,255,0.2)"}
-					// as={"section"}
-					// width='100%'
-					// marginTop={"20px !important"}
+						className='box-wrapper__ghost'
+						// backgroundColor={"rgba(255,255,255,0.2)"}
+						// as={"section"}
+						// width='100%'
+						// marginTop={"20px !important"}
 					>
-						<div
-						// flex
-						// gap='20px'
-						// alignItems='flex-start'
-						// justifyContent={"space-between"}
+						<FlexBox
+							className='gap-20'
+							// flex
+							// gap='20px'
+							// alignItems='flex-start'
+							// justifyContent={"space-between"}
 						>
-							<img src='/sw_icon.svg' alt='Swiper Preview' />
+							<Image src='/sw_icon.svg' alt='Swiper Preview' />
 							<Slider autoPlay={true}>
 								{SLIDER_MAIN_PAGE.map(
 									(item, key): JSX.Element => (
 										<Fragment key={`slider_main_page_${key}`}>
-											<SliderItem>{item.children}</SliderItem>
+											<SliderItem>
+												<p className='text-lg'>{item.children}</p>
+											</SliderItem>
 										</Fragment>
 									)
 								)}
 							</Slider>
-						</div>
+						</FlexBox>
 					</BoxWrapper>
-				</div>
+				</FlexBox>
 			</DefaultLayout>
 		</Fragment>
 	);

@@ -1,29 +1,20 @@
-import { FC, ReactNode } from "react";
+import { AnchorHTMLAttributes, FC, ReactNode } from "react";
+import style from "./Link.module.scss";
 
-interface LinkProps {
+export type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 	href: string;
-	children: ReactNode;
-	rest?: any;
-}
+	children?: ReactNode;
+	rest?: AnchorHTMLAttributes<HTMLAnchorElement>;
+};
 
-export const Link: FC<LinkProps> = ({ href, children, ...rest }) => {
+export const NavLink: FC<LinkProps> = ({
+	href,
+	children,
+	className = "",
+	...rest
+}) => {
 	return (
-		<a
-			className='link'
-			// variant={"link"}
-			// fontWeight={700}
-			// marginInline={0}
-			// _hover={{
-			// 	textDecoration: "underline",
-			// 	cursor: "poiner",
-			// }}
-			// fontSize={{ "2xl": "18px", md: "14px", base: "22px" }}
-			// color='#EEFAF8'
-			// lineHeight={"110%"}
-			// as={"a"}
-			// caseSensitive={true}
-			{...rest}
-			href={href}>
+		<a className={`${style["link"]} ${className}`} href={href} {...rest}>
 			{children}
 		</a>
 	);

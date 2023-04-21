@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+import style from "./Item.module.scss";
 
 export type SliderItemProps = {
 	children: ReactNode;
@@ -6,12 +7,8 @@ export type SliderItemProps = {
 
 export const SliderItem: FC<SliderItemProps> = ({ children }) => {
 	return (
-		<div
-		//  minW={"100%"}
-		//  maxW={"100%"}
-		//  height='auto'
-		>
-			<p
+		<div className={style["slider-item"]}>
+			{/* <p
 			// noOfLines={2}
 			// left={0}
 			// top={0}
@@ -19,9 +16,9 @@ export const SliderItem: FC<SliderItemProps> = ({ children }) => {
 			// userSelect={"none"}
 			// fontSize={{ sm: "30px", base: "20px" }}
 			// lineHeight='126%'
-			>
-				{children}
-			</p>
+			> */}
+			{children}
+			{/* </p> */}
 		</div>
 	);
 };

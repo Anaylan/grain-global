@@ -1,0 +1,19 @@
+.text-input {
+	width: 100%;
+
+	position: relative;
+	transition-duration: var(--duration-normal);
+	border-radius: var(--radius-md);
+	font-size: 14px;
+	padding-inline-start: var(--space-4);
+	padding-inline-end: var(--space-4);
+	height: var(--sizes-12);
+	border-width: 1px;
+	border-style: solid;
+	font-weight: 700;
+	color: rgb(52, 55, 60);
+
+	@media screen and (min-width: 48em) {
+		font-size: 18px;
+	}
+}

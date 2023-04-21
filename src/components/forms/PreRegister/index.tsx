@@ -1,7 +1,13 @@
-import { BoxWrapper } from "@/components/boxes";
+import { BoxWrapper, FlexBox } from "@/components/boxes";
 import { preRegisterSchema } from "@/utils/validators/preRegister";
 import { useFormik } from "formik";
 import { error, success, empty } from "@/utils/colors";
+import { Button } from "@/components/buttons/FormButton";
+import { TextInput } from "@/components/input/TextInput";
+import { Tooltip } from "@/components/tooltip";
+import { NavLink } from "@/components/link";
+
+import style from "./PreRegister.module.scss";
 
 export const PreRegisterForm = ({ title }: { title: string }) => {
 	const formik = useFormik({
@@ -17,40 +23,24 @@ export const PreRegisterForm = ({ title }: { title: string }) => {
 		},
 	});
 	return (
-		<form
-			style={{
-				width: "100%",
-			}}
-			onSubmit={formik.handleSubmit}>
-			<BoxWrapper
-				// display='flex'
-				// marginTop={"72px"}
-				// width='100%'
-				// backgroundColor={backgroundColor}
-				// flexDirection={"column"}
-				className='form'
-				// gap='5'
-			>
-				<h1
-				// fontSize='18px'
-				// maxW={{ "2xl": "65%", base: "100%" }}
-				// lineHeight='140%'
-				// fontWeight={"400"}
-				>
-					{title}
-				</h1>
-				<div
-				// flex
-				// spacing={"4"}
+		<BoxWrapper className={style["form"]}>
+			<form
+				onSubmit={formik.handleSubmit}
+				className={`${style["form-wrapper"]}`}>
+				<h1 className={style["form__title"]}>{title}</h1>
+				<FlexBox
+					className={`${style["form-wrapper__container"]}`}
+					// flex
+					// spacing={"4"}
 				>
 					{/* tooltip */}
-					<div
+					<Tooltip
 					// padding='3'
 					// borderRadius='xl'
 					// hasArrow
 					// label={formik.errors.name}
 					>
-						<input
+						<TextInput
 							// size={"lg"}
 							// variant={"register"}
 							// color={
@@ -58,6 +48,16 @@ export const PreRegisterForm = ({ title }: { title: string }) => {
 							// 		? "#EF4F4F"
 							// 		: "#34373C"
 							// }
+							className={
+								formik.touched.name && formik.errors.name != null
+									? // red
+									  "error"
+									: formik.errors.name == null && formik.values.name != ""
+									? // green
+									  "success"
+									: //   gray
+									  "empty"
+							}
 							name='name'
 							value={formik.values.name}
 							onChange={formik.handleChange}
@@ -76,20 +76,31 @@ export const PreRegisterForm = ({ title }: { title: string }) => {
 							placeholder='What is your name?'
 							type={"text"}
 						/>
-					</div>
-					<div
-					// padding='3'
-					// borderRadius='xl'
-					// hasArrow
-					// label={formik.errors.email}
+					</Tooltip>
+					<Tooltip
+						label={formik.errors.email}
+						// padding='3'
+						// borderRadius='xl'
+						// hasArrow
+						// label={formik.errors.email}
 					>
-						<input
+						<TextInput
 							name='email'
 							// size={"lg"}
 							// variant={"register"}
 							// color={
 							// 	formik.touched.email && formik.errors.email ? error : "#34373C"
 							// }
+							className={
+								formik.touched.email && formik.errors.email != null
+									? // red
+									  "error"
+									: formik.errors.email == null && formik.values.email != ""
+									? // green
+									  "success"
+									: //   gray
+									  "empty"
+							}
 							onBlur={formik.handleBlur}
 							value={formik.values.email}
 							onChange={formik.handleChange}
@@ -104,30 +115,26 @@ export const PreRegisterForm = ({ title }: { title: string }) => {
 							placeholder='Email'
 							type={"text"}
 						/>
-					</div>
-				</div>
+					</Tooltip>
+				</FlexBox>
 
-				<div
+				<FlexBox
 				// flex
 				// spacing={"4"}
 				>
 					<div
-					// width={{ "2xl": "50%", xl: "50%" }}
-					>
-						<p
-						// fontWeight={400}
-						// fontStyle='normal'
-						// lineHeight='120%'
-						// fontSize='14px'
-						>
+						// width={{ "2xl": "50%", xl: "50%" }}
+						className='half'>
+						<p className={style["form__text"]}>
 							By clicking on the “Sing Up” button, you agree to the{" "}
-							<a href={"/privacy"} style={{ textDecoration: "underline" }}>
+							<NavLink className='link__white__underline' href={"/privacy"}>
 								privacy policy
-							</a>
+							</NavLink>
 						</p>
 					</div>
-					<button
+					<Button
 						type='submit'
+						className='half'
 						// width={"50%"}
 						// variant={"solid"}
 						// size='lg'
@@ -142,9 +149,9 @@ export const PreRegisterForm = ({ title }: { title: string }) => {
 						// background={"#00B96B"}
 					>
 						Sign up
-					</button>
-				</div>
-			</BoxWrapper>
-		</form>
+					</Button>
+				</FlexBox>
+			</form>
+		</BoxWrapper>
 	);
 };

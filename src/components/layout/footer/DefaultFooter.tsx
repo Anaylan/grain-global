@@ -1,25 +1,36 @@
-import { Link } from "@/components/link";
+import { FlexBox } from "@/components/boxes";
+import { NavLink } from "@/components/link";
+
+import style from "./DefaultFooter.module.scss";
 
 export const DefaultFooter = () => {
 	return (
 		<footer
-			className='container'
+			className={`${style["footer"]} container`}
+			id='footer'
 			// zIndex='30'
 			// flex={"auto"}
 			// pt={"6"}
 			// mb='2'
 		>
-			<div
-			// flex
-			// marginBottom={{ md: "13px", base: "10" }}
-			// flexDirection={{ md: "row", base: "column" }}
-			// alignItems='start'
-			// gap={"16px"}
+			<FlexBox
+				className={`${style["footer__links"]} ${style["footer__flex"]} column-md`}
+				// flex
+				// marginBottom={{ md: "13px", base: "10" }}
+				// flexDirection={{ md: "row", base: "column" }}
+				// alignItems='start'
+				// gap={"16px"}
 			>
-				<Link href='/terms'>Terms and Conditions</Link>
-				<Link href='/supply'>Supply agreement</Link>
-				<Link href='/commision'>Commission agtreement</Link>
-			</div>
+				<NavLink className='link__light' href='/terms'>
+					Terms and Conditions
+				</NavLink>
+				<NavLink className='link__light' href='/supply'>
+					Supply agreement
+				</NavLink>
+				<NavLink className='link__light' href='/commision'>
+					Commission agtreement
+				</NavLink>
+			</FlexBox>
 			<p
 			// lineHeight={"110%"}
 			// fontSize={{ xl: "18px", base: "14px" }}

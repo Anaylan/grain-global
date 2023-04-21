@@ -1,0 +1,11 @@
+.column-md {
+	flex-direction: column;
+
+	@media screen and (min-width: 48em) {
+		flex-direction: row;
+	}
+}
+
+.column {
+	flex-direction: column;
+}

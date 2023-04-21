@@ -1,0 +1,13 @@
+.navigation {
+	display: flex;
+	gap: 8px;
+}
+
+.slider {
+	width: 100%;
+	display: flex;
+	overflow: hidden;
+	justify-content: space-between;
+	flex-direction: column;
+	margin-top: -0.25rem;
+}

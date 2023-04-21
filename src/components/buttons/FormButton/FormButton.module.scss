@@ -1,0 +1,22 @@
+.btn__green {
+	background: #00b96b;
+	color: #ffff;
+
+	&:hover {
+		background: #01695b;
+	}
+
+	&:active {
+		background: #46a381;
+	}
+}
+
+.btn {
+	padding: 13px;
+	width: 100%;
+	font-size: 18px;
+	font-weight: 700;
+	border: none;
+	transition: all 0.1s ease-in;
+	border-radius: var(--radius-md);
+}

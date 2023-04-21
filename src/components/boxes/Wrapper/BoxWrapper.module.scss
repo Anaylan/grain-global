@@ -1,0 +1,10 @@
+.box-wrapper {
+	border-radius: var(--radius-lg);
+	padding: 24px 30px 30px 30px;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.box-wrapper:first-child {
+	margin-top: 0;
+}

@@ -1,11 +1,20 @@
-// import { Button, ButtonProps } from "@chakra-ui/react";
-import { FC, ReactNode } from "react";
+import { ButtonHTMLAttributes, FC, ReactNode } from "react";
+import style from "./FormButton.module.scss";
 
-export type FormButtonProps = {
-	children: ReactNode;
-	rest?: any;
+export type FormButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+	rest?: ButtonHTMLAttributes<HTMLButtonElement>;
 };
 
-export const FormButton: FC<FormButtonProps> = ({ children, ...rest }) => {
-	return <button {...rest}>{children}</button>;
+export const Button: FC<FormButtonProps> = ({
+	children,
+	className = "",
+	...rest
+}) => {
+	return (
+		<button
+			className={`${style["btn"]} ${style["btn__green"]} ${className}`}
+			{...rest}>
+			{children}
+		</button>
+	);
 };

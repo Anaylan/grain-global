@@ -1,0 +1,20 @@
+.link__light {
+	color: #eefaf8;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.link__active {
+	color: #34b829;
+	text-decoration: underline;
+}
+
+.link__white__underline {
+	text-decoration: underline;
+	color: white;
+}
+
+.link__p {
+	font-size: 22px;
+}

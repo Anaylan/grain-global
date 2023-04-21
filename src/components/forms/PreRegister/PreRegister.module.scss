@@ -1,0 +1,43 @@
+.form-wrapper {
+	width: 100%;
+
+	flex-direction: column;
+	gap: 24px;
+	display: flex;
+
+	&__container {
+		display: flex;
+		flex-direction: row;
+		min-width: 100%;
+		gap: 16px;
+	}
+}
+
+.form {
+	margin-top: 72px;
+	background-color: rgba(255, 255, 255, 0.3);
+	&__text {
+		// fontWeight={400}
+		// fontStyle='normal'
+		// lineHeight='120%'
+		// fontSize='14px'
+		font-weight: 400;
+		font-style: normal;
+		line-height: 120%;
+		font-size: 14px;
+	}
+
+	&__title {
+		font-size: 18px;
+		max-width: 100%;
+		line-height: 140%;
+		font-weight: 400;
+	}
+
+	@media screen and (min-width: 96em) {
+		// 2xl
+		&__title {
+			max-width: 65%;
+		}
+	}
+}
